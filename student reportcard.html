@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report Card</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f8;
+            color: #30343b;
+            padding: 20px;
+        }
+
+        .report-card {
+            width: 100%;
+            max-width: 1230px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 55px 55px 45px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Main Heading */
+        .title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #111820;
+            margin-bottom: 28px;
+        }
+
+        /* Student Information */
+        .student-info {
+            background: #f8fafb;
+            border: 1px solid #e4e9ed;
+            border-radius: 17px;
+            padding: 22px 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 50px;
+            font-size: 25px;
+            margin-bottom: 32px;
+        }
+
+        .info-item {
+            line-height: 1.35;
+        }
+
+        .info-item strong {
+            font-weight: 700;
+            color: #242a31;
+        }
+
+        /* Horizontal line */
+        .line {
+            height: 2px;
+            background: #e7e7e7;
+            margin-bottom: 35px;
+        }
+
+        /* Section Heading */
+        .section-title {
+            color: #1688b5;
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* Table */
+        .marks-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 24px;
+            border: 1px solid #d7dfe4;
+        }
+
+        .marks-table th {
+            background: #eef3f6;
+            font-weight: 700;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #d7dfe4;
+        }
+
+        .marks-table td {
+            padding: 18px 20px;
+            border: 1px solid #d7dfe4;
+        }
+
+        .marks-table tr:nth-child(even) {
+            background: #fafbfb;
+        }
+
+        .marks-table .total-row {
+            background: #eef3f6;
+            font-weight: 700;
+        }
+
+        /* Column widths */
+        .marks-table th:nth-child(1),
+        .marks-table td:nth-child(1) {
+            width: 45%;
+        }
+
+        .marks-table th:nth-child(2),
+        .marks-table td:nth-child(2) {
+            width: 15%;
+        }
+
+        .marks-table th:nth-child(3),
+        .marks-table td:nth-child(3) {
+            width: 18%;
+        }
+
+        .marks-table th:nth-child(4),
+        .marks-table td:nth-child(4) {
+            width: 22%;
+        }
+
+        /* Attendance and Result */
+        .result-section {
+            margin-top: 30px;
+            padding: 18px 28px;
+            border-radius: 17px;
+            background: #f8fafb;
+            border: 1px solid #e6eaed;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 24px;
+        }
+
+        .attendance strong,
+        .result strong {
+            color: #252b31;
+        }
+
+        /* PASS Badge */
+        .pass {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 7px 15px;
+            border-radius: 20px;
+            background: #d9f5df;
+            color: #24804a;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 38px;
+            font-size: 23px;
+            color: #68727b;
+        }
+
+        .footer strong {
+            color: #30363d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 800px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .report-card {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .title {
+                font-size: 28px;
+            }
+
+            .student-info {
+                grid-template-columns: 1fr;
+                font-size: 17px;
+                padding: 18px;
+            }
+
+            .section-title {
+                font-size: 23px;
+            }
+
+            .marks-table {
+                font-size: 16px;
+            }
+
+            .marks-table th,
+            .marks-table td {
+                padding: 12px 9px;
+            }
+
+            .result-section {
+                font-size: 17px;
+                padding: 15px;
+            }
+
+            .footer {
+                font-size: 16px;
+                gap: 20px;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .title {
+                font-size: 23px;
+            }
+
+            .marks-table {
+                font-size: 13px;
+            }
+
+            .marks-table th,
+            .marks-table td {
+                padding: 10px 6px;
+            }
+
+            .result-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report-card">
+
+        <!-- Heading -->
+        <h1 class="title">STUDENT REPORT CARD</h1>
+
+        <!-- Student Details -->
+        <div class="student-info">
+
+            <div class="info-item">
+                <strong>Name:</strong> Bishnu Halder 
+            </div>
+
+            <div class="info-item">
+                <strong>Roll No:</strong> 1024
+            </div>
+
+            <div class="info-item">
+                <strong>Class:</strong> 12th
+            </div>
+
+            <div class="info-item">
+                <strong>Academic Year:</strong> 2025–2026
+            </div>
+
+        </div>
+
+        <div class="line"></div>
+
+        <!-- Academic Performance -->
+        <h2 class="section-title">Academic Performance</h2>
+
+        <table class="marks-table">
+
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Max</th>
+                    <th>Marks</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>English</td>
+                    <td>100</td>
+                    <td>88</td>
+                    <td>A</td>
+                </tr>
+
+                <tr>
+                    <td>Mathematics</td>
+                    <td>100</td>
+                    <td>92</td>
+                    <td>A+</td>
+                </tr>
+
+                <tr>
+                    <td>Science</td>
+                    <td>100</td>
+                    <td>85</td>
+                    <td>A</td>
+                </tr>
+
+                <tr>
+                    <td>Social Science</td>
+                    <td>100</td>
+                    <td>81</td>
+                    <td>A</td>
+                </tr>
+
+                <tr>
+                    <td>Computer Science</td>
+                    <td>100</td>
+                    <td>95</td>
+                    <td>A+</td>
+                </tr>
+
+                <tr class="total-row">
+                    <td>Total</td>
+                    <td>500</td>
+                    <td>441</td>
+                    <td>A</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <!-- Attendance + Result -->
+        <div class="result-section">
+
+            <div class="attendance">
+                <strong>Attendance:</strong> 178 / 190 Days
+            </div>
+
+            <div class="result">
+                <strong>Result:</strong>
+                <span class="pass">PASS</span>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+
+            <div>
+                <strong>Class Teacher:</strong> Sanjoy Das
+            </div>
+
+            <div>
+                <strong>Principal:</strong> Probhash Chandra Ghosh
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
